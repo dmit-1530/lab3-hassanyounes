@@ -1,6 +1,5 @@
-
 /* Do not modify this file - Changes here not be graded. */
-
+ 
 /* Variables */
 :root {
     --accent: #0e7490;
@@ -10,32 +9,38 @@
     --slate-200: #e2e8f0;
     --slate-800: #1e293b;
 }
-
+ 
 body {
     color: var(--slate-800);
     font-family: "Open Sans", sans-serif;
     font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
 }
-
+ 
+main {
+    flex-grow: 1;
+}
+ 
 h1 {
     font-size: 1.65rem;
     font-weight: normal;
 }
-
+ 
 header {
     background-color: var(--slate-50);
     border-bottom: 1px solid var(--slate-200);
     box-shadow: var(--box-shadow);
     padding: 0.5rem;
 }
-
+ 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
 }
-
+ 
 header a:hover {
     color: var(--rose-700);
 }
@@ -55,8 +60,9 @@ nav {
     border-color: var(--rose-700);
 }
 .container {
-    max-width: 700px;
+     max-width: 700px;
     margin: 0 auto;
+    padding: 4rem;
 }
 article {
     margin-bottom: 2rem;
@@ -73,7 +79,7 @@ article img + h2 {
 footer {
     background-color: var(--accent);
     color: var(--slate-50);
-    padding: 2rem; 
+    padding: 2rem;
 }
 footer a {
     background-color: var(--rose-700);

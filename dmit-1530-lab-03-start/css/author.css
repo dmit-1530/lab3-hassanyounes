@@ -2,7 +2,122 @@
 Add your styles to this file only. Update the following line with your full name and username on GitHub.
 
 Author:
-Your Name | Username on GitHub
+Your Name: Hassan Younes | Username on GitHub: hassanyounes
 
 */
 
+/* --------------------------------------------
+   Lab 03 - Positioning (Author Styles)
+   Mobile-first, no media queries
+--------------------------------------------- */
+
+:root {
+    --side-size: 4rem;
+    --side-offset: 1rem;
+    --side-border: #2a7f8e;
+}
+
+/* 1) Sticky header (content scrolls behind it) */
+header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* 2) Footer at bottom on short pages (and after content on long pages) */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+
+    /*
+        Ensure the fixed side icons don't overlap the content area.
+        Hint from README: calc()
+    */
+    padding-inline: clamp(
+        1rem,
+        6vw,
+        calc((var(--side-size) + (var(--side-offset) * 2)))
+    );
+}
+
+/* 3) Up arrow fixed in bottom-right corner of browser */
+.up-arrow {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+}
+
+/* 4) Side icons fixed, perfectly centered, 1rem off sides */
+.sides a {
+    background-color: #fff;
+    border: 2px solid var(--side-border);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    height: var(--side-size);
+    justify-content: center;
+    position: fixed;
+    top: calc(50% - (var(--side-size) / 2));
+    width: var(--side-size);
+    z-index: 20;
+}
+
+.sides .left {
+    left: var(--side-offset);
+}
+
+.sides .right {
+    right: var(--side-offset);
+}
+
+/* Keep the PNG icons from blowing up */
+.sides img {
+    display: block;
+    margin: 0;
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain; /* keeps aspect ratio, prevents stretching */
+}
+
+/* 5) Event title overlays image, 1rem from bottom, full width */
+article > div {
+    position: relative;
+}
+
+article img + h2 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+/* 6) All links have hovers */
+a:hover,
+a:focus-visible {
+    text-decoration: underline;
+}
+
+/* Icon hovers (fill + invert icon) */
+.sides a:hover,
+.sides a:focus-visible {
+    background-color: var(--side-border);
+}
+
+.sides a:hover img,
+.sides a:focus-visible img {
+    filter: invert(1);
+}
+
+/* Up arrow hover */
+.up-arrow:hover,
+.up-arrow:focus-visible {
+    filter: brightness(0.95);
+}
